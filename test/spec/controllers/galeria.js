@@ -1,22 +1,37 @@
 'use strict';
 
-describe('Controller: GaleriaCtrl', function () {
+/**
+ * @ngdoc function
+ * @name prototipoApp.controller:GaleriaCtrl
+ * @description
+ * # GaleriaCtrl
+ * Controller of the prototipoApp
+ */
+angular.module('prototipoApp')
+  .controller('GaleriaCtrl', function ($scope) {
+    var pictures =$scope.pictures=[];
 
-  // load the controller's module
-  beforeEach(module('prototipoApp'));
+    var baseURL='http://lorempixel.com/300/180/';
 
-  var GaleriaCtrl,
-    scope;
+    var titles=['Comida Sana','Salud y trabajo','Vida en la ciudad ',
+             'Mantente activo','Cuida tu aspecto','¡¡Vida nocturna!!'] ;
 
-  // Initialize the controller and a mock scope
-  beforeEach(inject(function ($controller, $rootScope) {
-    scope = $rootScope.$new();
-    GaleriaCtrl = $controller('GaleriaCtrl', {
-      $scope: scope
+    var keywords=['food', 'business','city','sports','fashion', 
+               'nightlife'];
+
+    var dummyText='Lorem ipsum dolor, Lorem ipsum dolor, Lorem ipsum dolor, Lorem ipsum dolor, Lorem ipsum dolor.';
+
+$scope.addPics=function(i){
+   pictures.push({
+         url:baseURL+keywords[i],
+         title:titles[i],
+         summary:dummyText
     });
-  }));
-
-  it('should attach a list of awesomeThings to the scope', function () {
-    expect(scope.awesomeThings.length).toBe(3);
-  });
-});
+};
+for (var i=0;i<5;i++){
+    $scope.addPics(i);
+}  
+$scope.rate = 0;
+$scope.max = 10;
+$scope.isReadonly = false;
+    });
