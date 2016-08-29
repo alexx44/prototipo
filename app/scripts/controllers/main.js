@@ -31,25 +31,25 @@ angular.module('prototipoApp')
 
     ]; 
 // Modelo para los tres bloques de contenidos
-var baseURL='http://lorempixel.com/200/200/'
+var baseURL1='http://lorempixel.com/200/200/';
 $scope.contenido=[
 {
-   img:baseURL+'people',
+   img:baseURL1+'people',
    title:'Sobre Nosotros',
    sumario:'Somos una empresa comprometida con la vida sana'
 },
 {
-   img:baseURL+'business',
+   img:baseURL1+'business',
    title:'Nuestros Servicios',
    sumario:'Ofrecemos asesoría profesional para mantenerse Sanos, buena alimentación, cuales son los mejores ejercicios para tí, etc.'
 },
 {
 
-   img:baseURL+'transport',
+   img:baseURL1+'transport',
    title:'Contáctanos',
    sumario:'#333, Buena vida Online, Plaza Central, Durance, Zip-432167'
 }
-]
+];
 
     
   });
