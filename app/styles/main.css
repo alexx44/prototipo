@@ -96,3 +96,13 @@ width:100%}
     width: 940px;
     height: 300px;
 }
+
+.ngRow.even{
+    background: AliceBlue;
+}
+.ngRow.odd{
+    background: YellowGreen;
+}
+.modal-body input{
+    display: block;
+}

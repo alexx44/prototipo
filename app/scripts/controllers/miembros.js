@@ -8,7 +8,7 @@
  * Controller of the prototipoApp
  */
 angular.module('prototipoApp')
-  .controller('MiembrosCtrl', function ($scope,$http) {
+  .controller('MiembrosCtrl', function ($scope,$http,$modal) {
     $http.get('http://localhost:9000/miembros.json').success(function(data){
     $scope.miembros = data;
 });
@@ -25,4 +25,15 @@ angular.module('prototipoApp')
         {field:'fechaUnion', displayName:'Fecha de Unión'},
         {field:'tipoMiembro', displayName:'Tipo de Miembro'}]
 };
-  });
+    $scope.showModal=function(){
+        $scope.nuevoMiembro={};
+        var modalInstance = $modal.open({
+            templateUrl: 'views/add-miembros.html',
+            controller: 'AddNuevoMiembroCtrl'
+        })};
+  })
+.controller('AddNuevoMiembroCtrl', function($scope, $modalInstance){
+   $scope.cancel=function(){
+       $modalInstance.dismiss('cancel');
+   };
+})
